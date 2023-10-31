@@ -6,45 +6,40 @@ import jakarta.persistence.*;
 @Table(name="todos")
 public class Task {
     @Id
-    @SequenceGenerator(
-            name="task_seq",
-            sequenceName = "task_seq",
-            allocationSize = 1)
+
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "task_seq"
-    )
+            strategy = GenerationType.AUTO)
     private Long id;
-    private String text;
+    private String description;
     private Status status;
     public Task( ) {
 
     }
 
-    public Task(long id, String text, Status status) {
+    public Task(long id, String description, Status status) {
         this.id = id;
-        this.text = text;
+        this.description = description;
         this.status = status;
     }
-    public Task(String text, Status status) {
+    public Task(String description, Status status) {
 
-        this.text = text;
+        this.description = description;
         this.status = status;
     }
-    public long getid() {
+    public long getId() {
         return id;
     }
 
-    public void setid(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public String gettext() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
-    public void settext(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Status getStatus() {
@@ -59,7 +54,7 @@ public class Task {
     public String toString() {
         return "Task{" +
                 "id=" + id +
-                ", text='" + text + '\'' +
+                ", description='" + description + '\'' +
                 ", status=" + status +
                 '}';
     }
