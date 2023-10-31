@@ -25,7 +25,7 @@ public class TaskServiceTest {
 
     @Mock
     TaskRepository taskRepository;
-
+//Test TaskService getAllTask and save
     @Test
     void testFindAllTasks() {
         List<Task> list = new ArrayList<Task>();
@@ -40,7 +40,8 @@ public class TaskServiceTest {
 
         //test
         List<Task> empList = service.getAllTask();
-        empList = service.getAllTask();
+//        should fail if uncommented
+//        empList = service.getAllTask();
         assertEquals(2, empList.size());
         verify(taskRepository, times(1)).findAll();
     }
