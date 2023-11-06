@@ -24,7 +24,7 @@ class TaskControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    void serverStatus() throws Exception {
+    void serverRespondsOK() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/api/todo",
                 String.class)).contains("OK");
     }
